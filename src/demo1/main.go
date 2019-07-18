@@ -14,6 +14,7 @@ import (
 func main() {
 	// test()
 	// webtest()
+	// defertest()
 
 }
 
@@ -70,10 +71,12 @@ func webtest() {
 	http.HandleFunc("/", headler)
 	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
-
 func headler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "URL.Path = %q\n", r.URL.Path)
 }
-func typeTest() {
-
+func defertest() {
+	i := 0
+	defer fmt.Println(i)
+	i++
+	return
 }
