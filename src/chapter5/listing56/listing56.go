@@ -33,6 +33,7 @@ type admin struct {
 
 // main is the entry point for the application.
 func main() {
+	// 内嵌的对象 等价于父类对象 子类对象调用父类方法, 同样也可以使用父类属性
 	// Create an admin user.
 	ad := admin{
 		user: user{

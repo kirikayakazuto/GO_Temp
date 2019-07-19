@@ -5,5 +5,5 @@ package entities
 // User defines a user in the program.
 type User struct {
 	Name  string
-	email string
+	email string // 小写开头 私有变量
 }

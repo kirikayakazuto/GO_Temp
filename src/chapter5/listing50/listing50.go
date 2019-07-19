@@ -22,7 +22,7 @@ func (u *user) notify() {
 
 // admin represents an admin user with privileges.
 type admin struct {
-	user  // Embedded Type
+	user  // Embedded Type 嵌入式成员user
 	level string
 }
 
@@ -40,6 +40,10 @@ func main() {
 	// We can access the inner type's method directly.
 	ad.user.notify()
 
+	ad.name = "lala"
+
 	// The inner type's method is promoted.
 	ad.notify()
+
+	fmt.Println(ad)
 }

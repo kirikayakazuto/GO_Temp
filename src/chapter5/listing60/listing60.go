@@ -34,6 +34,7 @@ type admin struct {
 
 // notify implements a method that can be called via
 // a value of type Admin.
+// 等价子类对象重写父类方法
 func (a *admin) notify() {
 	fmt.Printf("Sending admin email to %s<%s>\n",
 		a.name,
