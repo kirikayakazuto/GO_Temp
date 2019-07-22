@@ -2,7 +2,10 @@ package main
 
 import (
 	"fmt"
+	"runtime"
+	"sync"
 	"testing"
+	"time"
 )
 
 func main() {
@@ -61,4 +64,46 @@ func TestSlice2(t *testing.T) {
 	t.Log(s1)
 	s1 = append(s1, 4, 5)
 	t.Log(s1)
+
+	for index, value := range s1 {
+		t.Log(index, value)
+	}
+
+	for i := 0; i < len(s1); i++ {
+		t.Log(i, s1[i])
+	}
+}
+
+func TestGO(t *testing.T) {
+	runtime.GOMAXPROCS(1)
+
+	var wg sync.WaitGroup
+	wg.Add(2)
+	index := 1
+	go func() {
+		defer wg.Done()
+		for {
+			t.Logf("%d %d", 1, index)
+			time.Sleep(1 * time.Second)
+			index++
+			if index > 20 {
+				break
+			}
+		}
+
+	}()
+	go func() {
+		defer wg.Done()
+		for {
+			t.Logf("%d %d", 2, index)
+			time.Sleep(1 * time.Second)
+			index++
+			if index > 20 {
+				break
+			}
+		}
+	}()
+
+	wg.Wait()
+
 }
