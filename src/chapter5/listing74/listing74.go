@@ -5,7 +5,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/goinaction/code/chapter5/listing74/entities"
+	"chapter5/listing74/entities"
 )
 
 // main is the entry point for the application.
@@ -17,6 +17,7 @@ func main() {
 
 	// Set the exported fields from the unexported
 	// inner type.
+	// 私有类型 只能通过自己调用
 	a.Name = "Bill"
 	a.Email = "bill@email.com"
 

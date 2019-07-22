@@ -27,7 +27,7 @@ func main() {
 
 		// Display the alphabet three times
 		for count := 0; count < 3; count++ {
-			for char := 'a'; char < 'a'+26; char++ {
+			for char := 'a'; char <= 'z'; char++ {
 				fmt.Printf("%c ", char)
 			}
 		}
@@ -36,11 +36,12 @@ func main() {
 	// Declare an anonymous function and create a goroutine.
 	go func() {
 		// Schedule the call to Done to tell main we are done.
+		// wg的count 减一
 		defer wg.Done()
 
 		// Display the alphabet three times
 		for count := 0; count < 3; count++ {
-			for char := 'A'; char < 'A'+26; char++ {
+			for char := 'A'; char <= 'Z'; char++ {
 				fmt.Printf("%c ", char)
 			}
 		}

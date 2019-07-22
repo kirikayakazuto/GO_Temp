@@ -40,6 +40,7 @@ func incCounter(id int) {
 
 	for count := 0; count < 2; count++ {
 		// Safely Add One To Counter.
+		// 对引用的地址 进行负赋值
 		atomic.AddInt64(&counter, 1)
 
 		// Yield the thread and be placed back in queue.

@@ -36,14 +36,9 @@ func printPrime(prefix string) {
 	// Schedule the call to Done to tell main we are done.
 	defer wg.Done()
 
-next:
 	for outer := 2; outer < 5000; outer++ {
-		for inner := 2; inner < outer; inner++ {
-			if outer%inner == 0 {
-				continue next
-			}
-		}
 		fmt.Printf("%s:%d\n", prefix, outer)
+		// time.Sleep(1)
 	}
 	fmt.Println("Completed", prefix)
 }
